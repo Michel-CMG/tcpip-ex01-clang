@@ -5,12 +5,10 @@
 #include <string.h>
 #include <unistd.h>
 
-
 #define PORT 54321
 
 int DoTheJob_ForTest()
 {
-    char *hello = "Hello from client. Trans by tcpip socket!";
     int mySocket = 0;
     mySocket = socket(AF_INET, SOCK_STREAM, 0);    // Consider no error now
 
@@ -23,13 +21,15 @@ int DoTheJob_ForTest()
 
     // Connect socket and send request message
     connect(mySocket, (struct sockaddr *)&servAddr, sizeof(servAddr));
+
+    char *hello = "Hello from client. Trans by tcpip socket!";
     send(mySocket, hello, strlen(hello), 0);
     printf("Client says: Hello Message sent.\n");
 
     // Read response message
     char buffer[1024] = {0};
     read(mySocket, buffer, 1024);
-    printf("Client says: Received the message '%s'", buffer);
+    printf("Client says: Received the message '%s'\n", buffer);
 
     return 0;
 }
