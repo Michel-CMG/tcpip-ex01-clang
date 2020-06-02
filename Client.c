@@ -7,7 +7,7 @@
 
 #define PORT 54321
 
-int DoTheJob_ForTest()
+int main()
 {
     int mySocket = 0;
     mySocket = socket(AF_INET, SOCK_STREAM, 0);    // Consider no error now
@@ -32,11 +32,4 @@ int DoTheJob_ForTest()
     printf("Client says: Received the message '%s'\n", buffer);
 
     return 0;
-}
-
-int main()
-{
-    printf("Let's program to send the hello message\n");
-    printf("Dont forget to install libc6-dev\n");
-    return DoTheJob_ForTest();
 }

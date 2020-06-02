@@ -9,8 +9,9 @@
 
 int main()
 {
+    printf("Wait for Client to connect.\n\n");
+
     int serverSocket = socket(AF_INET, SOCK_STREAM, 0);
-    
     int opt = 0;
     setsockopt(serverSocket,
                SOL_SOCKET, SO_REUSEADDR | SO_REUSEPORT,
